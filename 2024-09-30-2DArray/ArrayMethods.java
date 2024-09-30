@@ -16,7 +16,7 @@ public class ArrayMethods {
       System.out.println("Expected output: [[-2, -3, -4], [-5, -6, -7]]\n actual output; " + arrToString(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: [[0]]\n actual output; " + arrToString(r));
-    /*
+
       r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
       System.out.println("Expected output: 42 \n actual output; " + arr2DSum(r));
       r = new int[][]{{},{},{},{}};
@@ -25,7 +25,7 @@ public class ArrayMethods {
       System.out.println("Expected output: -27 \n actual output; " + arr2DSum(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: 0\n actual output; " + arr2DSum(r));
-
+    /*
       r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
       System.out.println("Expected output: {{2, 5, 2}, {3, 6, 2}, {4, 7, 9}} \n actual output; " + swapRC(r));
       r = new int[][]{{},{},{},{}};
@@ -73,7 +73,13 @@ public class ArrayMethods {
     /*Return the sum of all of the values in the 2D array */
     public static int arr2DSum(int[][]nums){
       //use a nested loop to solve this
-      return null;//place holder return value so it compiles.
+      int result = 0;
+      for (int i = 0; i < nums.length; i++) {
+        for (int j = 0; j < nums[i].length; j++) {
+            result += nums[i][j];
+        }
+      }
+      return result;//place holder return value so it compiles.
     }
     
     /**Rotate an array by returning a new array with the rows and columns swapped.
