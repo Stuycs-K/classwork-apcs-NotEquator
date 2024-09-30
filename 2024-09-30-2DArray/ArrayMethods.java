@@ -25,16 +25,15 @@ public class ArrayMethods {
       System.out.println("Expected output: -27 \n actual output; " + arr2DSum(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: 0\n actual output; " + arr2DSum(r));
-    /*
+
       r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
-      System.out.println("Expected output: {{2, 5, 2}, {3, 6, 2}, {4, 7, 9}} \n actual output; " + swapRC(r));
+      System.out.println("Expected output: [[2, 5, 2], [3, 6, 2], [4, 7, 9]] \n actual output; " + arrToString(swapRC(r)));
       r = new int[][]{{},{},{},{}};
-      System.out.println("Expected output: {{}} \n actual output; " + swapRC(r));
+      System.out.println("Expected output: [] \n actual output; " + arrToString(swapRC(r)));
       r = new int[][]{{-2,-3,-4},{-5,-6,-7}};
-      System.out.println("Expected output: {{-2, -5}, {-3, -6}, {-4, -7}} \n actual output; " + swapRC(r));
+      System.out.println("Expected output: [[-2, -5], [-3, -6], [-4, -7]] \n actual output; " + arrToString(swapRC(r)));
       r = new int[][]{{0}};
-      System.out.println("Expected output: {{0}}\n actual output; " + swapRC(r));
-    */
+      System.out.println("Expected output: [[0]]\n actual output; " + arrToString(swapRC(r)));
     }
     
     public static String arrToString(int[]ary){
@@ -87,6 +86,14 @@ public class ArrayMethods {
       * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
       */
     public static int[][] swapRC(int[][]nums){
-      return new int[1][1];
+      int row = nums.length;
+      int column = nums[0].length;
+      int[][] result = new int[column][row];
+      for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            result[j][i] = nums[i][j];
+        }
+      }
+      return result;
     }
 }
