@@ -7,7 +7,7 @@ public class ArrayMethods {
     * "[2, 3, 4, 9]"
     * Note the comma+space between values, and between values
     */
-    public static main (String[] args) {
+    public static void main (String[] args) {
       int[][] r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
       System.out.println("Expected output: [[2, 3, 4], [5, 6, 7], [2, 4, 9]]\n actual output; " + arrToString(r));
       r = new int[][]{{},{},{},{}};
@@ -16,7 +16,7 @@ public class ArrayMethods {
       System.out.println("Expected output: [[-2, -3, -4], [-5, -6, -7]]\n actual output; " + arrToString(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: [[0]]\n actual output; " + arrToString(r));
-
+    /*
       r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
       System.out.println("Expected output: 42 \n actual output; " + arr2DSum(r));
       r = new int[][]{{},{},{},{}};
@@ -34,19 +34,20 @@ public class ArrayMethods {
       System.out.println("Expected output: {{-2, -5}, {-3, -6}, {-4, -7}} \n actual output; " + swapRC(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: {{0}}\n actual output; " + swapRC(r));
+    */
     }
     
     public static String arrToString(int[]ary){
       String result = "[";
-        for (int i=0; i < nums.length; i++) {
-          if (i < nums.length - 1) {
-            result += nums[i] + ", ";
+        for (int i=0; i < ary.length; i++) {
+          if (i < ary.length - 1) {
+            result += ary[i] + ", ";
           }
           else {
-            result += nums[i] + "]";
+            result += ary[i];
           }
         }
-        return result;
+        return result + "]";
       }
     
     //3. Write arrToString, with a 2D array parameter.
@@ -58,9 +59,15 @@ public class ArrayMethods {
       * previous code, but you should NOT duplicate that code. (Don't copy/paste or retype it)
       */
     public static String arrToString(int[][]ary){
-      //this should use arrToString(int[])
-    
-      return "";
+        //this should use arrToString(int[])
+        String result = "[";
+            for (int i = 0; i < ary.length; i++) {
+            result += arrToString(ary[i]);
+            if (i < ary.length - 1) {
+                result += ", ";
+            }
+        }  
+      return result + "]";
     }
     
     /*Return the sum of all of the values in the 2D array */
