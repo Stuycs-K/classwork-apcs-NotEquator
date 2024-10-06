@@ -9,6 +9,7 @@ public class ArrayMethods {
     */
     public static void main (String[] args) {
       int[][] r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
+      System.out.println("ArrToString");
       System.out.println("Expected output: [[2, 3, 4], [5, 6, 7], [2, 4, 9]]\n actual output; " + arrToString(r));
       r = new int[][]{{},{},{},{}};
       System.out.println("Expected output: [[], [], [], []]\n actual output; " + arrToString(r));
@@ -16,7 +17,7 @@ public class ArrayMethods {
       System.out.println("Expected output: [[-2, -3, -4], [-5, -6, -7]]\n actual output; " + arrToString(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: [[0]]\n actual output; " + arrToString(r));
-
+      System.out.println("Arr2DSum");
       r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
       System.out.println("Expected output: 42 \n actual output; " + arr2DSum(r));
       r = new int[][]{{},{},{},{}};
@@ -25,7 +26,7 @@ public class ArrayMethods {
       System.out.println("Expected output: -27 \n actual output; " + arr2DSum(r));
       r = new int[][]{{0}};
       System.out.println("Expected output: 0\n actual output; " + arr2DSum(r));
-
+      System.out.println("SwapRC");
       r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
       System.out.println("Expected output: [[2, 5, 2], [3, 6, 2], [4, 7, 9]] \n actual output; " + arrToString(swapRC(r)));
       r = new int[][]{{},{},{},{}};
@@ -34,6 +35,27 @@ public class ArrayMethods {
       System.out.println("Expected output: [[-2, -5], [-3, -6], [-4, -7]] \n actual output; " + arrToString(swapRC(r)));
       r = new int[][]{{0}};
       System.out.println("Expected output: [[0]]\n actual output; " + arrToString(swapRC(r)));
+      System.out.println("ReplaceNegative");
+      r = new int[][]{{-2,3,-4},{5,6,7},{-2,4,-9}};
+      replaceNegative(r);
+      System.out.println("Expected output: [[1, 3, 0], [5, 6, 7], [0, 4, 1]] \n actual output; " + arrToString(r));
+      r = new int[][]{{},{},{},{}};
+      replaceNegative(r);
+      System.out.println("Expected output: [[], [], [], []] \n actual output; " + arrToString(r));
+      r = new int[][]{{-2,-3,-4},{-5,-6,-7}};
+      replaceNegative(r);
+      System.out.println("Expected output: [[1, 0, 0],[0, 1, 0]] \n actual output; " + arrToString(r));
+      r = new int[][]{{-0}};
+      replaceNegative(r);
+      System.out.println("Expected output: [[0]]\n actual output; " + arrToString(r));
+      System.out.println("Copy");
+      r = new int[][]{{-2,-3,-4},{-5,-6,-7}};
+      System.out.println("Expected output: false \n actual output; " + (r == copy(r)));
+      r = new int[][]{{2,3,4},{5,6,7},{2,4,9}};
+      int[][] copy = copy(r);
+      System.out.println("Expected output: true \n actual output; " + (r[0][0] == copy[0][0]));
+      r[0][0] = 123;
+      System.out.println("Expected output: false \n actual output; " + (r[0][0] == copy[0][0]));
     }
 
     public static String arrToString(int[]ary){
@@ -105,7 +127,12 @@ public class ArrayMethods {
       for (int row = 0; row < vals.length; row++) {
         for (int column = 0; column < vals[row].length; column++) {
           if (vals[row][column] < 0) {
-            return 0;
+            if  (row == column) {
+              vals[row][column] = 1;
+            }
+            else {
+              vals[row][column] = 0;
+            }
           }
         }
       }
@@ -117,6 +144,17 @@ public class ArrayMethods {
     //You SHOULD write a helper method for this.
     //If you don't see a good way to do that, you should stop and look at prior methods.
     public static int[][] copy(int[][] nums){
-      return null;//placeholder so it compiles
+      int[][] result = new int[nums.length][];
+      for (int row = 0; row < nums.length; row++) {
+        result[row] = copyrow(nums[row]);
+      }
+      return result;
+    }
+    public static int[] copyrow(int[] row) {
+      int[] result = new int[row.length];
+      for (int i = 0; i < row.length; i++) {
+        result[i] = row[i];
+      }
+      return result;
     }
 }
