@@ -5,8 +5,13 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+    System.out.println("--countZeros2D--");
     int[][] arr = new int[][]{{1, 0, 0}, {2, 3}, {0}};
-    System.out.println(countZeros2D(arr));
+    System.out.println("Expected Ouput: 3; Actual Output: " + countZeros2D(arr));
+    arr = new int[][]{{}, {}, {}};
+    System.out.println("Expected Ouput: 0; Actual Output: " + countZeros2D(arr));
+    arr = new int[][]{{-1, -2}, {0, 0}, {}};
+    System.out.println("Expected Ouput: 2; Actual Output: " + countZeros2D(arr));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
