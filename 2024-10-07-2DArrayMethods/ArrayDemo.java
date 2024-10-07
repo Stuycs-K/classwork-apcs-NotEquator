@@ -94,9 +94,19 @@ public class ArrayDemo{
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    return new int[1][1];
+    int[][] result = new int[nums.length][];
+    for (int row = 0; row < nums.length; row++) {
+      result[row] = copyrow(nums[row]);
+    }
+    return result;
   }
-
+  public static int[] copyrow(int[] row) {
+    int[] result = new int[row.length];
+    for (int i = 0; i < row.length; i++) {
+      result[i] = row[i];
+    }
+    return result;
+  }
   //5. Rotate an array by returning a new array with the rows and columns swapped.
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
