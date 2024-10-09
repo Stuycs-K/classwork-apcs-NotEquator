@@ -108,12 +108,10 @@ public class ArrayMethods {
       * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
       */
     public static int[][] swapRC(int[][]nums){
-      int row = nums.length;
-      int column = nums[0].length;
-      int[][] result = new int[column][row];
-      for (int i = 0; i < row; i++) {
-        for (int j = 0; j < column; j++) {
-            result[j][i] = nums[i][j];
+      int[][] result = new int[nums[0].length][nums.length];
+      for (int row = 0; row < nums.length; row++) {
+        for (int column = 0; column < nums[0].length; column++) {
+            result[column][row] = nums[row][column];
         }
       }
       return result;
