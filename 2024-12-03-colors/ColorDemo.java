@@ -16,25 +16,19 @@ public class ColorDemo {
         }
     }
     public static void draw(int offset) {
-        System.out.print("\u001b[H"); // Move cursor to top-left
-        int rows = 20; // Number of rows in the gradient
-        int cols = 40; // Number of columns in the gradient
-
+        System.out.print("\u001b[H");
+        int rows = 20;
+        int cols = 40;
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                // Calculate colors based on position and offset
                 int red = (row * 10 + offset) % 256;
                 int green = (col * 5 + offset) % 256;
                 int blue = ((row + col) * 3 + offset) % 256;
-                
-                // Print colored block
                 System.out.print("\u001b[38;2;" + red + ";" + green + ";" + blue + "m█");
             }
-            System.out.println(); // Move to the next row
+            System.out.println();
         }
     }
-
-    // Helper method to pause the program
     public static void sleep(int millis) {
         try {
             Thread.sleep(millis);
