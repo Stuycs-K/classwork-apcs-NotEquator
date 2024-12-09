@@ -27,10 +27,10 @@ public class Berserker extends Adventurer{
 
     public String attack(Adventurer other) {
       Random rng = new Random();
-      int damage = rng.nextInt(10) + 10;
+      int damage = rng.nextInt(5) + 3;
       other.applyDamage(damage);
-      setSpecial(getSpecial() + damage);
-      return super.getName() + " did " + damage + " to " + other.getName() + "!";
+      setSpecial(getSpecial() + damage*10);
+      return super.getName() + " did " + damage + " damage to " + other.getName() + "!";
     }
     public String support(Adventurer other) {
       other.setHP(other.getHP() + 10);
@@ -45,7 +45,7 @@ public class Berserker extends Adventurer{
         return super.getName() + " does NOT lust for enough blood!";
       }
       Random rng = new Random();
-      int damage = rng.nextInt(20) + 15;
+      int damage = rng.nextInt(8) + 2;
       other.applyDamage(damage);
       setSpecial(0);
       super.setHP(super.getHP() + 20);
