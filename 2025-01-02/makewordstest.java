@@ -1,14 +1,14 @@
 public class makewordstest {
   public static void makeWords(int remainingletters, String result, String alphabet) {
-    /* if (remainingletters > 0) {
+    if (remainingLetters == 0) {
         System.out.println(result);
+        return;
     }
-    else {
-      makeWords(remainingletters-1,result+letter,alphabet);
-    } */
+    for (int i = 0; i < alphabet.length(); i++) {
+        makeWords(remainingLetters - 1, result + alphabet.charAt(i), alphabet);
+    }
   }
   public static void main(String[] args) {
-    // makeWords(2, "", "abc");
-
+    makeWords(2, "", "abc");
   }
 }
